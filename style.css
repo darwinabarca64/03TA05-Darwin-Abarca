@@ -1,0 +1,129 @@
+/* Reset básico para centrar el contenido */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    animation: ambientBackground 5s ease-in-out infinite;
+}
+
+.container {
+    text-align: center;
+    /* 1. Forma de cuadrado con bordes */
+    width: 260px;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 2. Estilo del contorno */
+    border-radius: 20px;
+    /* Bordes ligeramente redondeados para estilo moderno */
+    padding: 32px;
+    background-color: rgba(0, 0, 0, 0.18);
+    /* Un fondo oscuro semitransparente para que resalte */
+}
+
+
+/* Animación base */
+.titulo,
+.subtitulo,
+.btn {
+    opacity: 0;
+    animation: fadeSlide 0.8s ease-out forwards;
+}
+
+/* Retrasos para el efecto escalonado (Stagger) */
+.titulo {
+    animation-delay: 0.2s;
+
+
+}
+
+.subtitulo {
+    animation-delay: 0.5s;
+}
+
+.btn {
+    animation-delay: 0.8s;
+    /* Estilos extra para el botón */
+    padding: 12px 35px;
+    cursor: pointer;
+    background: #000dff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    animation: fadeSlide 0.8s ease-out forwards,
+        respirar 3s ease-in-out infinite 0.8s;
+    transition: background 0.3s ease;
+}
+
+/* Extra: efecto al pasar el ratón */
+.btn:hover {
+    background: #fc0400;
+    transform: scale(1.15);
+    /* Crece al pasar el ratón */
+
+}
+
+
+/* Definición de la animación */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+        /* Viene desde arriba */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ambientBackground {
+    0% {
+        background-color: #cd3c3c;
+        /* Rojo muy oscuro */
+    }
+
+    33% {
+        background-color: #501ece;
+        /* Azul muy oscuro */
+    }
+
+    66% {
+        background-color: #7a1cb5;
+        /* Un tono púrpura intermedio */
+    }
+
+    100% {
+        background-color: #b63c3c;
+        /* Vuelve al inicio */
+    }
+}
+
+/* 3. Definición del efecto Respirar (Pulso sutil) */
+@keyframes respirar {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(231, 76, 60, 0);
+    }
+
+    50% {
+        transform: scale(1.08);
+        /* Crece un 8% */
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        /* Brillo exterior */
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(231, 76, 60, 0);
+    }
+}
